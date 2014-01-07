@@ -21,3 +21,17 @@ function islandora_creative_commons_menu() {
   );
   return $items;
 }
+
+/**
+ * Alter the image upload forms, to allow a flag to be set for OCR.
+ */
+function islandora_creative_commons_form_alter(&$form, &$form_state, $form_id) {
+  $forms_to_modify = array(
+    'xml_form_builder_ingest_form',
+    'xml_form_builder_edit_datastream_form',
+  );
+  if (in_array($form_id, $forms_to_modify)) {
+    module_load_include('inc', 'islandora_creative_commons', 'includes/creative_commons');
+    islandora_creative_commons_form($form, $form_state);
+  }
+}
