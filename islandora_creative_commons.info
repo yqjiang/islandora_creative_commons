@@ -1,0 +1,6 @@
+name = Islandora Creative Commons
+description = Allows users to add creative commons.
+dependencies[] = islandora
+package = Islandora
+configure = admin/islandora/creative-commons
+core = 7.x

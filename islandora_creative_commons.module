@@ -1,0 +1,23 @@
+<?php
+
+/**
+ * @file
+ * Module used to track and manage user defined lists of pids.
+ */
+
+/**
+ * Implements hook_menu().
+ */
+function islandora_creative_commons_menu() {
+  $items = array();
+  $items['admin/islandora/creative-commons'] = array(
+    'title' => 'Creative Commons',
+    'description' => 'Config DSID and Xpath that creative commons should be added to.',
+    'type' => MENU_NORMAL_ITEM,
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('islandora_creative_commons_admin_form'),
+    'access arguments' => array('administer'),
+    'file' => 'includes/admin.form.inc',
+  );
+  return $items;
+}
